@@ -1,0 +1,297 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui,
+    sans-serif;
+  background-color: #ffffff;
+  color: #333333;
+}
+
+.page {
+  min-height: 100vh;
+  padding: 24px 40px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.tabs {
+  display: flex;
+  background-color: #ffd6dd;
+  border-radius: 4px 4px 0 0;
+  padding: 8px 32px;
+  gap: 40px;
+  font-size: 16px;
+}
+
+.tab-button {
+  border: none;
+  background: transparent;
+  padding: 8px 0;
+  cursor: pointer;
+  color: #555555;
+  font-size: 16px;
+}
+
+.tab-button.active {
+  font-weight: 600;
+  color: #000000;
+}
+
+.tab-button:not(.active):hover {
+  color: #222222;
+}
+
+.table-wrapper {
+  margin: 0 auto;
+  margin-top: 24px;
+  width: 80%;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.tasks-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tasks-table thead {
+  background-color: #f7f7f7;
+}
+
+.tasks-table th,
+.tasks-table td {
+  border: 1px solid #d4d4d4;
+  padding: 10px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+
+.tasks-table th:first-child,
+.tasks-table td:first-child {
+  width: 60%;
+}
+
+.tasks-table th:nth-child(2),
+.tasks-table td:nth-child(2) {
+  width: 20%;
+}
+
+.tasks-table th:nth-child(3),
+.tasks-table td:nth-child(3) {
+  width: 15%;
+}
+
+.tasks-table th:last-child,
+.tasks-table td:last-child {
+  width: 5%;
+  text-align: center;
+}
+
+.cell {
+  position: relative;
+}
+
+.cell.clickable {
+  cursor: pointer;
+}
+
+.cell-input,
+.cell-select {
+  width: 100%;
+  font-size: 14px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  border: 1px solid #cccccc;
+}
+
+.cell-input:focus,
+.cell-select:focus {
+  outline: none;
+  border-color: #ff9aa2;
+  box-shadow: 0 0 0 1px #ff9aa2;
+}
+
+.status-pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 14px;
+  font-size: 13px;
+}
+
+.status-active {
+  background-color: #ffd6dd;
+  color: #a02c3a;
+}
+
+.status-done {
+  background-color: #d5f6d5;
+  color: #207a2b;
+}
+
+.status-canceled {
+  background-color: #f9f2c7;
+  color: #9b7a00;
+}
+
+.deadline-text {
+  font-weight: 500;
+}
+
+.deadline-overdue {
+  color: #d42a2a;
+}
+
+.cell-delete {
+  text-align: center;
+}
+
+.delete-button {
+  border: none;
+  background-color: #ffd6dd;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+}
+
+.delete-button:hover {
+  background-color: #ffb6c1;
+}
+
+.add-button-wrapper {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.primary-button {
+  min-width: 180px;
+  padding: 10px 18px;
+  border-radius: 20px;
+  border: none;
+  background-color: #ffd6dd;
+  color: #333333;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.primary-button:hover {
+  background-color: #ffb6c1;
+}
+
+.empty-cell {
+  text-align: center;
+  color: #888888;
+  padding: 20px 16px;
+}
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal {
+  width: 520px;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 24px 28px 28px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  border: 1px solid #ffd6dd;
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.modal-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.modal-close {
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.modal-form {
+  margin-top: 4px;
+}
+
+.form-row {
+  margin-bottom: 14px;
+}
+
+.form-label {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 14px;
+}
+
+.form-input,
+.form-select {
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 1px solid #d4d4d4;
+}
+
+.form-input:focus,
+.form-select:focus {
+  outline: none;
+  border-color: #ff9aa2;
+  box-shadow: 0 0 0 1px #ff9aa2;
+}
+
+.has-error {
+  border-color: #d42a2a !important;
+}
+
+.error-text {
+  color: #d42a2a;
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.form-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 900px) {
+  .table-wrapper {
+    width: 100%;
+  }
+
+  .page {
+    padding: 16px;
+  }
+
+  .modal {
+    width: 90%;
+  }
+}
+
